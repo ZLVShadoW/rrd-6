@@ -4,26 +4,21 @@ import {Home} from './pages/Home';
 import {Blog} from './pages/Blog';
 import {About} from './pages/About';
 import {NotFound} from './pages/NotFound';
+import {Layout} from './Components/Layout';
 
 const App = () => {
-  return (
-      <>
-        <header>
-          <Link to="/">home</Link>
-          <Link to="/posts">blog</Link>
-          <Link to="/about">about</Link>
-        </header>
-          <div>
-              <h1>let startt it</h1>
-          </div>
-          <Routes>
-              <Route path={'/'} element={<Home />} />
-              <Route path={'/posts'} element={<Blog />} />
-              <Route path={'/about'} element={<About />} />
-              <Route path={'*'} element={<NotFound />} />
-          </Routes>
-      </>
-  );
+    return (
+        <>
+            <Routes>
+                <Route path={'/'} element={<Layout/>}>
+                    <Route index element={<Home/>}/>
+                    <Route path={'posts'} element={<Blog/>}/>
+                    <Route path={'about'} element={<About/>}/>
+                    <Route path={'*'} element={<NotFound/>}/>
+                </Route>
+            </Routes>
+        </>
+    );
 }
 
 export default App;
