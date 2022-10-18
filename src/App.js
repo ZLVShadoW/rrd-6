@@ -8,6 +8,8 @@ import {Layout} from './Components/Layout';
 import {SinglePost} from './pages/SinglePost';
 import {NewPost} from './pages/NewPost';
 import {EditPost} from './pages/EditPost';
+import {RequireAuth} from './hoc/RequireAuth';
+import {Login} from './pages/Login';
 
 const App = () => {
     return (
@@ -16,11 +18,15 @@ const App = () => {
                 <Route path={'/'} element={<Layout/>}>
                     <Route index element={<Home/>}/>
                     <Route path={'posts'} element={<Blog/>}/>
-                    <Route path={'posts/:id'} element={<SinglePost />}/>
-                    <Route path={'posts/:id/edit'} element={<EditPost />}/>
-                    <Route path={'posts/new'} element={<NewPost />}/>
+                    <Route path={'posts/:id'} element={<SinglePost/>}/>
+                    <Route path={'posts/:id/edit'} element={<EditPost/>}/>
+                    <Route path={'posts/new'} element={
+                        <RequireAuth>
+                            <NewPost/>
+                        </RequireAuth>}/>
                     <Route path={'about'} element={<About/>}/>
                     <Route path={'think'} element={<div>think page</div>}/>
+                    <Route path={'login'} element={<Login/>}/>
                     <Route path={'*'} element={<NotFound/>}/>
                 </Route>
             </Routes>
