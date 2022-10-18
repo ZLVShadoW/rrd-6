@@ -12,12 +12,12 @@ export const Blog = () => {
 
     return (
         <>
-            <Link to={'/posts/new'} >NEW POST</Link>
-        <div>
-            {posts.map(el => (
-                <div key={el.id}><Link to={`/posts/${el.id}`}>{el.id} : {el.title}</Link></div>
-            ))}
-        </div>
+            <Link to={'/posts/new'}>NEW POST</Link>
+            <div>
+                {posts.map(el => (
+                    <div key={el.id}><Link to={`/posts/${el.id}`}>{el.id} : {el.title}</Link></div>
+                ))}
+            </div>
         </>
     );
 };

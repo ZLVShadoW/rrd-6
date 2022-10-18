@@ -10,10 +10,11 @@ import {NewPost} from './pages/NewPost';
 import {EditPost} from './pages/EditPost';
 import {RequireAuth} from './hoc/RequireAuth';
 import {Login} from './pages/Login';
+import {LoginProvider} from './hoc/LoginProvider';
 
 const App = () => {
     return (
-        <>
+        <LoginProvider>
             <Routes>
                 <Route path={'/'} element={<Layout/>}>
                     <Route index element={<Home/>}/>
@@ -30,7 +31,7 @@ const App = () => {
                     <Route path={'*'} element={<NotFound/>}/>
                 </Route>
             </Routes>
-        </>
+        </LoginProvider>
     );
 }
 
