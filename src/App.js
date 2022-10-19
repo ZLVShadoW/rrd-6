@@ -25,7 +25,11 @@ const App = () => {
                         <RequireAuth>
                             <NewPost/>
                         </RequireAuth>}/>
-                    <Route path={'about'} element={<About/>}/>
+                    {/*<Route path={'about/*'} element={<About/>}/> * - при использовании вложенных внутри кмопоненты */}
+                    <Route path={'about'} element={<About/>}>
+                        <Route path={'contacts'} element={<div>Contacts info</div>} />
+                        <Route path={'address'} element={<div>Address information</div>} />
+                    </Route>
                     <Route path={'think'} element={<div>think page</div>}/>
                     <Route path={'login'} element={<Login/>}/>
                     <Route path={'*'} element={<NotFound/>}/>
